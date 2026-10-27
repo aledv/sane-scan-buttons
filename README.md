@@ -1,5 +1,7 @@
 # sane-scan-buttons
 
+[![CI](https://github.com/aledv/sane-scan-buttons/actions/workflows/image.yml/badge.svg)](https://github.com/aledv/sane-scan-buttons/actions/workflows/image.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Image](https://img.shields.io/badge/ghcr.io-sane--scan--buttons-2496ED?logo=docker&logoColor=white)](https://github.com/aledv/sane-scan-buttons/pkgs/container/sane-scan-buttons)
+
 Make the physical buttons of a USB scanner do something useful again, on a Raspberry Pi or any
 Linux box with Docker. Press a button, get a PDF:
 
@@ -82,6 +84,10 @@ hadolint --config .hadolint.yaml Dockerfile      # Dockerfile linter
 
 CI runs the linters, then the tests, then publishes `ghcr.io/aledv/sane-scan-buttons`
 (`linux/arm64`, `linux/amd64`).
+
+## Contributing
+
+Issues and pull requests are welcome. Please run the linters and tests (see [Development](#development)) before opening a pull request.
 
 ## License
 
