@@ -1,0 +1,18 @@
+services:
+  scan-buttons:
+    image: ghcr.io/aledv/sane-scan-buttons:latest   # pin a tag (or tag@sha256) in production
+    container_name: scan-buttons
+    restart: unless-stopped
+    env_file: .env
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    device_cgroup_rules:
+      - "c 189:* rmw"          # USB devices, so a re-plugged scanner is found again
+    environment:
+      CUPS_SERVER: /run/cups/cups.sock
+    volumes:
+      - /run/cups/cups.sock:/run/cups/cups.sock     # COPY: print with the host's CUPS
+      - ./consume:/consume                          # SCAN: e.g. the Paperless-ngx consume folder
+      - ./output:/output                            # PDF:  e.g. a Nextcloud user folder
+    # To share the scanner with scanservjs, put both on the same network and set
+    # SANED_NET_HOSTS=scan-buttons in scanservjs.

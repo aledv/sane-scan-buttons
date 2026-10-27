@@ -1,0 +1,6 @@
+# Dockerfile linter, run in CI. The base image is pinned by digest; apt packages are not
+# (old versions disappear from the Debian mirrors).
+failure-threshold: warning
+ignored:
+  - DL3008
+  - DL3002
